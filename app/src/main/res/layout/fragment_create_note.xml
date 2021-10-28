@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.notes.CreateNoteFragment">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/create_note_title">
+
+        <EditText
+            android:id="@+id/ti_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/til_title"
+        android:hint="@string/create_note_description">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ti_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:inputType="text"
+            android:maxLines="1" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/ti_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/til_description"
+        android:hint="@string/create_note_content"/>
+
+
+</RelativeLayout>

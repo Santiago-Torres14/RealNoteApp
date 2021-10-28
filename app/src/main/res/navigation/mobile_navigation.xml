@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="santiago.academy.realnoteapp.ui.fragments.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_folder"
+        android:name="santiago.academy.realnoteapp.ui.fragments.folder.FolderFragment"
+        android:label="@string/folders"
+        tools:layout="@layout/fragment_folder" />
+
+    <fragment
+        android:id="@+id/nav_create_note"
+        android:name="santiago.academy.realnoteapp.ui.fragments.notes.CreateNoteFragment"
+        android:label="@string/create_note"
+        tools:layout="@layout/fragment_create_note"/>
+
+    <action
+        android:id="@+id/nav_to_create_note"
+        app:destination="@id/nav_create_note" />
+
+    <action
+        android:id="@+id/nav_to_home"
+        app:destination="@id/nav_home"/>
+
+</navigation>
