@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import santiago.academy.realnoteapp.databinding.NoteItemBinding
 import santiago.academy.realnoteapp.db.Note
 
-class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
+class NoteAdapter(val listener: (Note) -> Unit) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
 
     inner class NoteViewHolder(val binding: NoteItemBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -35,6 +35,10 @@ class NoteAdapter : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
 
             val createdAt = note.created_at.time
             holder.binding.timeTv.text = createdAt.toString()
+
+            setOnClickListener {
+                listener(note)
+            }
         }
     }
 

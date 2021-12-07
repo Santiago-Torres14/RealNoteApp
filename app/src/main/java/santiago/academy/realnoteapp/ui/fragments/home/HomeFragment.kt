@@ -6,12 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
 import santiago.academy.realnoteapp.R
 import santiago.academy.realnoteapp.databinding.FragmentHomeBinding
+import santiago.academy.realnoteapp.db.Note
 import santiago.academy.realnoteapp.ui.adapters.NoteAdapter
 import santiago.academy.realnoteapp.viewmodels.NoteViewModel
 
@@ -39,8 +39,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         })
     }
 
+    private fun getNoteFromAdapter(note: Note){
+        val bundle = Bundle()
+        bundle.putLong("noteId", note.noteId)
+        findNavController().navigate(R.id.nav_to_create_note, bundle)
+    }
+
+
     private fun setupRecyclerView() = binding.noteRv.apply{
-        noteAdapter = NoteAdapter()
+        noteAdapter = NoteAdapter(this@HomeFragment::getNoteFromAdapter)
         adapter = noteAdapter
         layoutManager = LinearLayoutManager(requireContext())
     }

@@ -19,7 +19,7 @@ interface FolderDAO {
     @Query("SELECT * FROM folder_table")
     fun getFoldersAndNote(): LiveData<List<FolderAndNote>>
 
-    @Query("SELECT * FROM folder_table")
+    @Query("SELECT * FROM folder_table ORDER BY created_at DESC")
     fun getFolders(): LiveData<List<Folder>>
 
     @Transaction

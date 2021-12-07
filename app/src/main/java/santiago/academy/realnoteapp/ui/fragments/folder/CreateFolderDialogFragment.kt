@@ -19,12 +19,12 @@ class CreateFolderDialogFragment() : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let{
             val builder = AlertDialog.Builder(it)
-            val inflater = requireActivity().layoutInflater;
+            val inflater = requireActivity().layoutInflater.inflate(R.layout.dialog_create_folder, null)
 
-            builder.setView(inflater.inflate(R.layout.dialog_create_folder, null))
+            builder.setView(inflater)
                 .setPositiveButton("create"
                 ) { dialog, id ->
-                    val folderName = view?.findViewById<EditText>(R.id.et_create_folder)?.text.toString()
+                    val folderName = inflater.findViewById<EditText>(R.id.et_create_folder).text.toString()
                     val folder = Folder(folderName = folderName)
                     folderViewModel.insertFolders(folder)
                 }

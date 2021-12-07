@@ -14,4 +14,5 @@ class NoteRepository @Inject constructor(private val noteDAO: NoteDAO ){
 
     suspend fun insertNotes(vararg notes: Note) = noteDAO.insertNotes(*notes)
 
+    suspend fun updateNotes(vararg notes: Note) = noteDAO.updateNotes(*notes)
 }
